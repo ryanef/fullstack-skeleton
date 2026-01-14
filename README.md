@@ -1,0 +1,6 @@
+Default .env settings
+POSTGRES_PASSWORD=postgres
+POSTGRES_USER=postgres
+POSTGRES_DB=main
+POSTGRES_PORT=5432
+POSTGRES_HOST=db

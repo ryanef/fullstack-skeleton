@@ -1,0 +1,10 @@
+.env
+*.env
+**/venv
+**/node_modules
+**/__pycache__
+pg-data
+**/.terraform
+**/.terraform.lock.hcl
+**/terraform.tfstate
+**/terraform.tfstate.backup
