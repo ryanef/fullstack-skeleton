@@ -13,8 +13,6 @@ services:
     volumes:
       - ./pg-data:/var/lib/postgresql/data
       # - ./postgres:/docker-entrypoint-initdb.d/
-    env_file:
-      - .env
 
     networks:
       - default
@@ -26,8 +24,6 @@ services:
         - 5000:5000
       depends_on:
         - db
-      env_file:
-        - .env
 
       volumes:
         - ./backend-fastapi/src:/app/src
