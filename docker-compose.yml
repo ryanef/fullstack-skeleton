@@ -13,7 +13,15 @@ services:
     volumes:
       - ./pg-data:/var/lib/postgresql/data
       # - ./postgres:/docker-entrypoint-initdb.d/
-
+    env_file:
+      - .env
+    environment:
+      # - PGDATA=/var/lib/postgresql/data/pgdata
+      - PGPASSWORD=${POSTGRES_PASSWORD?Variable not set}
+      - PGUSER=${POSTGRES_USER?Variable not set}
+      - POSTGRES_DB=${POSTGRES_DB?Variable not set}
+      - PGHOST=${POSTGRES_HOST?Variable not set}
+      - PGPORT=${POSTGRES_PORT?Variable not set}
     networks:
       - default
   backend:
@@ -24,7 +32,15 @@ services:
         - 5000:5000
       depends_on:
         - db
-
+      env_file:
+        - .env
+      environment:
+        - PGDATA=/var/lib/postgresql/data/pgdata
+        - PGPASSWORD=${POSTGRES_PASSWORD?Variable not set}
+        - PGUSER=${POSTGRES_USER?Variable not set}
+        - PGDATABASE=${POSTGRES_DB?Variable not set}
+        - PGHOST=${POSTGRES_HOST?Variable not set}
+        - PGPORT=${POSTGRES_PORT?Variable not set}
       volumes:
         - ./backend-fastapi/src:/app/src
 
