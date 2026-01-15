@@ -17,7 +17,6 @@ COPY ./scripts/prestart.sh /app/prestart.sh
 
 COPY ./alembic.ini ./alembic.ini
 
-RUN chmod +x /app/prestart.sh
 
 EXPOSE 5000 
 
